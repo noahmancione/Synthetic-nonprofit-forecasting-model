@@ -36,8 +36,8 @@ Key outputs are saved in `visuals/`.
 - **PowerBI Historic Actuals**
   ![Synthetic historical actuals](visuals/PowerBI%20Synthetic%20Historical%20Acutals.png)
 
-- **Error Metrics Summary**
-  - ![Metrics](visuals/metrics_table.png)
+- **PowerBI Projecion Model**
+ ![PowerBI synthetic projection model](visuals/PowerBI%20Synthetic%20Projection%20Model.png)
 
 **Best model:** [SARIMAX / SARIMA / etc.]  
 **Headline performance:** [e.g., RMSE = X on holdout period; stable seasonal capture]

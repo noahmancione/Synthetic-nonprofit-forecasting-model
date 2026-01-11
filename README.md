@@ -1,56 +1,60 @@
 # Synthetic Nonprofit Forecasting Model (Math 499 Capstone)
 
-End-to-end forecasting workflow for nonprofit revenue and donor activity using a synthetic dataset designed to resemble real donor systems. Includes data generation/cleaning, exploratory analysis, model training, validation, and forecast visualization.
+End-to-end forecasting workflow for nonprofit revenue and donor activity using a synthetic dataset designed to resemble real donor management systems. The project covers data generation and validation, exploratory analysis, model training, time-aware validation, and forecast visualization.
 
-# Why this project
-Nonprofits rely on recurring gifts and sponsorship-style commitments; forecasting helps Finance and Philanthropy plan staffing, programs, and cashflow. This project demonstrates how to:
+## Why this project
+Nonprofits rely on recurring gifts and sponsorship-style commitments. Accurate forecasting supports Finance and Philanthropy teams in planning staffing, programs, and cash flow. This project demonstrates how to:
 - validate time-series data quality,
-- avoid leakage and mis-specified time splits,
-- compare forecasting approaches,
-- communicate results clearly with business-facing visuals.
+- avoid data leakage and mis-specified time splits,
+- compare baseline and statistical forecasting approaches,
+- communicate results clearly using business-facing visuals.
 
 ## Dataset (Synthetic)
-**Grain:** [e.g., monthly totals by fiscal month]  
-**Key fields:** [Fiscal Year, Fiscal Month, Active Start, New, Cancellations, Terminations, Active End, Revenue, etc.]  
-**Notes:** Data are synthetic and intended for portfolio demonstration; logic reflects typical donor lifecycle dynamics (acquisition, churn, seasonality).
+**Grain:** Monthly totals by fiscal month  
+**Key fields:** Fiscal Year, Fiscal Month, Active Start, New, Cancellations, Terminations, Active End, Revenue  
+**Notes:** Data are fully synthetic and intended for portfolio demonstration. Generation logic reflects common donor lifecycle dynamics, including acquisition, churn, and seasonality.
 
 ## Approach
 1. **Data preparation**
-   - Clean and validate time index (no missing months, consistent ordering)
-   - Sanity checks: totals, monotonic constraints (where applicable), outliers
+   - Validate time index (no missing months, consistent ordering)
+   - Sanity checks on totals, continuity, and outliers
 2. **Feature engineering**
-   - Lag features / rolling averages (where used)
-   - Seasonal indicators (month, fiscal month)
+   - Lagged variables and rolling statistics where appropriate
+   - Seasonal indicators (calendar and fiscal month)
 3. **Models**
-   - Baselines: seasonal naive / moving average
-   - Statistical: SARIMA/SARIMAX
-   - Additional: [Prophet / other], if included
+   - Baselines: seasonal naïve, moving average
+   - Statistical: SARIMA / SARIMAX
 4. **Validation**
-   - Time-based train/validation split (no random split)
-   - Metrics: MAE, RMSE, MAPE (as appropriate)
-   - Residual diagnostics (autocorrelation, bias checks)
+   - Strict time-based train/validation split
+   - Metrics: MAE and RMSE
+   - Residual diagnostics for bias and autocorrelation
 
 ## Results
 Key outputs are saved in `visuals/`.
 
-- **PowerBI Historic Actuals**
+- **Power BI — Historical Actuals**  
+  Shows synthetic revenue and donor activity trends with realistic seasonality and growth patterns.
+  
   ![Synthetic historical actuals](visuals/PowerBI%20Synthetic%20Historical%20Acutals.png)
 
-- **PowerBI Projecion Model**
- ![PowerBI synthetic projection model](visuals/PowerBI%20Synthetic%20Projection%20Model.png)
+- **Power BI — Projection Model**  
+  Displays forward projections from the selected time-series model with historical context.
+  
+  ![PowerBI synthetic projection model](visuals/PowerBI%20Synthetic%20Projection%20Model.png)
 
-**Best model:** [SARIMAX / SARIMA / etc.]  
-**Headline performance:** [e.g., RMSE = X on holdout period; stable seasonal capture]
+**Best model:** SARIMAX  
+**Headline performance:** Stable seasonal capture with lower error than baseline models on the holdout period.
 
 ## Repository structure
-- `notebooks/` — analysis and modeling notebooks (run in order)
-- `data/` — synthetic datasets (or generation outputs)
-- `visuals/` — exported charts and tables for the README
-- `docs/` — methodology notes / capstone write-up
+- `notebooks/` — analysis and modeling notebooks (intended to be run sequentially)
+- `data/` — synthetic datasets and generation outputs
+- `visuals/` — exported charts and tables used in this README
+- `docs/` — methodology notes and capstone write-up
 
 ## How to run
+
 ### Option A — Notebooks
-1. Create environment:
+1. Create and activate a virtual environment:
    ```bash
    python -m venv .venv
    source .venv/bin/activate  # macOS/Linux

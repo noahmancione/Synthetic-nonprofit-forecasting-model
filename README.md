@@ -2,7 +2,7 @@
 
 End-to-end forecasting workflow for nonprofit revenue and donor activity using a synthetic dataset designed to resemble real donor systems. Includes data generation/cleaning, exploratory analysis, model training, validation, and forecast visualization.
 
-## Why this project
+# Why this project
 Nonprofits rely on recurring gifts and sponsorship-style commitments; forecasting helps Finance and Philanthropy plan staffing, programs, and cashflow. This project demonstrates how to:
 - validate time-series data quality,
 - avoid leakage and mis-specified time splits,

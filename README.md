@@ -33,8 +33,8 @@ Nonprofits rely on recurring gifts and sponsorship-style commitments; forecastin
 ## Results
 Key outputs are saved in `visuals/`.
 
-- **Forecast vs Actual**
-  - ![visuals/PowerBI Synthetic Historical Acutals.png)
+- **PowerBI Historic Actuals**
+  ![Synthetic historical actuals](visuals/PowerBI%20Synthetic%20Historical%20Acutals.png)
 
 - **Error Metrics Summary**
   - ![Metrics](visuals/metrics_table.png)
